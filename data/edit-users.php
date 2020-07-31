@@ -136,48 +136,61 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 		<h1><a href="https://Cibicables.com/">
 				<center>Cibicables FTTH Database</center>
 			</a></h1>
-		<?php
-		if(isset($_REQUEST['msg']) and $_REQUEST['msg']=="un"){
+			<?php
 
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Username is mandatory field!</div>';
+if(isset($_REQUEST['msg']) and $_REQUEST['msg']=="un"){
 
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ut"){
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Username is mandatory field!</div>';
 
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Telephone is mandatory field!</div>';
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ut"){
 
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="uv"){
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Telephone is mandatory field!</div>';
 
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Vlan is mandatory field!</div>';
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="uv"){
 
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ume"){
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Vlan is mandatory field!</div>';
 
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Modem Username is mandatory field!</div>';
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ume"){
 
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ump"){
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Modem Username is mandatory field!</div>';
 
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Modem Password is mandatory field!</div>';
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ump"){
 
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ufu"){
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Modem Password is mandatory field!</div>';
 
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> FTTH Username is mandatory field!</div>';
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ufu"){
 
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ufp"){
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> FTTH Username is mandatory field!</div>';
 
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> FTTH Pawword is mandatory field!</div>';
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ufp"){
 
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="uwn"){
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> FTTH Pawword is mandatory field!</div>';
 
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Wifi Username is mandatory field!</div>';
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="uwn"){
 
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="uwp"){
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Wifi Username is mandatory field!</div>';
 
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Wifi Pawword is mandatory field!</div>';
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ras"){
-			echo	'<div class="alert alert-success"><i class="fa fa-thumbs-up"></i> Record added successfully!</div>';
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="rna"){
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Record not added <strong>Please try again!</strong></div>';
-		}
-		?>
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="uwp"){
+
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Wifi Pawword is mandatory field!</div>';
+
+
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ras"){
+
+	echo	'<div class="alert alert-success"><i class="fa fa-thumbs-up"></i> Record added successfully!</div>';
+
+
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="rna"){
+
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Record not added <strong>Please try again!</strong></div>';
+
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="dsd"){
+
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Please delete a user and then try again <strong>We set limit for security reasons!</strong></div>';
+
+}
+
+?>
 		<div class="card">
 			<div class="card-header"><i class="fa fa-fw fa-plus-circle"></i> <strong>Edit User</strong> <a
 					href="index.php" class="float-right btn btn-dark btn-sm"><i class="fa fa-fw fa-globe"></i> Browse
