@@ -150,7 +150,7 @@
 						<th>Ftth Passsword</th>
 						<th>Wifi Name</th>
 						<th>Wifi Passsword</th>
-						<th class="text-center">Record Date</th>
+						<!-- <th class="text-center">Record Date</th> -->
 						<th class="text-center">Action</th>
 					</tr>
 				</thead>
@@ -172,7 +172,7 @@
 						<td><?php echo $val['ftthpassword'];?></td>
 						<td><?php echo $val['wifiname'];?></td>
 						<td><?php echo $val['wifipassword'];?></td>
-						<td><?php echo $val['date'];?></td>
+						<!-- <td><?php echo $val['date'];?></td> -->
 
 						<td align="center">
 							<a href="edit-users.php?editId=<?php echo $val['id'];?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | 

@@ -9,28 +9,28 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 		header('location:'.$_SERVER['PHP_SELF'].'?msg=un&editId='.$_REQUEST['editId']);
 		exit;
 	}elseif($telephone==""){
-		header('location:'.$_SERVER['PHP_SELF'].'?msg=ue&editId='.$_REQUEST['editId']);
+		header('location:'.$_SERVER['PHP_SELF'].'?msg=ut&editId='.$_REQUEST['editId']);
 		exit;
 	}elseif($vlan==""){
-		header('location:'.$_SERVER['PHP_SELF'].'?msg=up&editId='.$_REQUEST['editId']);
+		header('location:'.$_SERVER['PHP_SELF'].'?msg=uv&editId='.$_REQUEST['editId']);
 		exit;
 	}elseif($musername==""){
-		header('location:'.$_SERVER['PHP_SELF'].'?msg=up&editId='.$_REQUEST['editId']);
+		header('location:'.$_SERVER['PHP_SELF'].'?msg=umu&editId='.$_REQUEST['editId']);
 		exit;
 	}elseif($mpassword==""){
-		header('location:'.$_SERVER['PHP_SELF'].'?msg=up&editId='.$_REQUEST['editId']);
+		header('location:'.$_SERVER['PHP_SELF'].'?msg=ump&editId='.$_REQUEST['editId']);
 		exit;
 	}elseif($ftthusername==""){
-		header('location:'.$_SERVER['PHP_SELF'].'?msg=up&editId='.$_REQUEST['editId']);
+		header('location:'.$_SERVER['PHP_SELF'].'?msg=ufu&editId='.$_REQUEST['editId']);
 		exit;
 	}elseif($ftthpassword==""){
-		header('location:'.$_SERVER['PHP_SELF'].'?msg=up&editId='.$_REQUEST['editId']);
+		header('location:'.$_SERVER['PHP_SELF'].'?msg=ufp&editId='.$_REQUEST['editId']);
 		exit;
 	}elseif($wifiname==""){
-		header('location:'.$_SERVER['PHP_SELF'].'?msg=up&editId='.$_REQUEST['editId']);
+		header('location:'.$_SERVER['PHP_SELF'].'?msg=uwn&editId='.$_REQUEST['editId']);
 		exit;
-	}elseif($wifipassowrd==""){
-		header('location:'.$_SERVER['PHP_SELF'].'?msg=up&editId='.$_REQUEST['editId']);
+	}elseif($wifipassword==""){
+		header('location:'.$_SERVER['PHP_SELF'].'?msg=uwp&editId='.$_REQUEST['editId']);
 		exit;
 	}
 	$data	=	array(
@@ -172,7 +172,7 @@ if(isset($_REQUEST['msg']) and $_REQUEST['msg']=="un"){
 
 }elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="uwp"){
 
-	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Wifi Pawword is mandatory field!</div>';
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Wifi Pasword is mandatory field!</div>';
 
 
 }elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="rus"){
