@@ -175,14 +175,14 @@ if(isset($_REQUEST['msg']) and $_REQUEST['msg']=="un"){
 	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Wifi Pawword is mandatory field!</div>';
 
 
-}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="ras"){
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="rus"){
 
-	echo	'<div class="alert alert-success"><i class="fa fa-thumbs-up"></i> Record added successfully!</div>';
+	echo	'<div class="alert alert-success"><i class="fa fa-thumbs-up"></i> Record updated successfully!</div>';
 
 
-}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="rna"){
+}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="rnu"){
 
-	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Record not added <strong>Please try again!</strong></div>';
+	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Record not updated<strong>Please try again!</strong></div>';
 
 }elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="dsd"){
 
