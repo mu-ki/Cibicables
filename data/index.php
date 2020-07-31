@@ -1,11 +1,19 @@
-<?php include_once('config.php');?>
-<!doctype html>
-<html lang="en-US" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:addthis="https://www.addthis.com/help/api-spec"  prefix="og: http://ogp.me/ns#" class="no-js">
+<?php include_once('config.php');
+if(isset($_REQUEST['dataid']) and $_REQUEST['dataid']!=""){
+	$row	=	$db->getAllRecords('users','*',' AND id="'.$_REQUEST['dataid'].'"');
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Cibicables FTTH Database</title>
-	
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -14,6 +22,22 @@
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+
+	<style>
+		.fieldBlock {
+			display: block;
+			width: 33%;
+			float: left;
+			padding: 10px;
+		}
+
+		.fieldBlock1 {
+			display: block;
+			width: 49.5%;
+			float: left;
+			padding: 10px;
+		}
+	</style>
 </head>
 
 <body>
@@ -45,25 +69,25 @@
 	
 	<?php
 	$condition	=	'';
-	if(isset($_REQUEST['username']) and $_REQUEST['username']!=""){
-		$condition	.=	' AND username LIKE "%'.$_REQUEST['username'].'%" ';
+	if(isset($_REQUEST['name']) and $_REQUEST['name']!=""){
+		$condition	.=	' AND name LIKE "%'.$_REQUEST['name'].'%" ';
 	}
-	if(isset($_REQUEST['useremail']) and $_REQUEST['useremail']!=""){
-		$condition	.=	' AND useremail LIKE "%'.$_REQUEST['useremail'].'%" ';
+	if(isset($_REQUEST['telephone']) and $_REQUEST['telephone']!=""){
+		$condition	.=	' AND telephone LIKE "%'.$_REQUEST['telephone'].'%" ';
 	}
-	if(isset($_REQUEST['userphone']) and $_REQUEST['userphone']!=""){
-		$condition	.=	' AND userphone LIKE "%'.$_REQUEST['userphone'].'%" ';
+	if(isset($_REQUEST['vlan']) and $_REQUEST['vlan']!=""){
+		$condition	.=	' AND vlan LIKE "%'.$_REQUEST['vlan'].'%" ';
 	}
-	if(isset($_REQUEST['df']) and $_REQUEST['df']!=""){
+	// if(isset($_REQUEST['df']) and $_REQUEST['df']!=""){
 
-		$condition	.=	' AND DATE(dt)>="'.$_REQUEST['df'].'" ';
+	// 	$condition	.=	' AND DATE(dt)>="'.$_REQUEST['df'].'" ';
 
-	}
-	if(isset($_REQUEST['dt']) and $_REQUEST['dt']!=""){
+	// }
+	// if(isset($_REQUEST['dt']) and $_REQUEST['dt']!=""){
 
-		$condition	.=	' AND DATE(dt)<="'.$_REQUEST['dt'].'" ';
+	// 	$condition	.=	' AND DATE(dt)<="'.$_REQUEST['dt'].'" ';
 
-	}
+	// }
 	
 	$userData	=	$db->getAllRecords('users','*',$condition,'ORDER BY id DESC');
 	?>
@@ -90,19 +114,19 @@
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label>User Name</label>
-									<input type="text" name="username" id="username" class="form-control" value="<?php echo isset($_REQUEST['username'])?$_REQUEST['username']:''?>" placeholder="Enter user name">
+									<input type="text" name="name" id="name" class="form-control" value="<?php echo isset($_REQUEST['name'])?$_REQUEST['name']:''?>" placeholder="Enter user name">
 								</div>
 							</div>
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label>Telephone</label>
-									<input type="number" name="telephone" id="useremail" class="form-control" value="<?php echo isset($_REQUEST['useremail'])?$_REQUEST['useremail']:''?>" placeholder="Enter 6 Digit Telephone number">
+									<input type="number" name="telephone" id="telephone" class="form-control" value="<?php echo isset($_REQUEST['telephone'])?$_REQUEST['telephone']:''?>" placeholder="Enter 6 Digit Telephone number">
 								</div>
 							</div>
 							<div class="col-sm-2">
 								<div class="form-group">
 									<label>Vlan</label>
-									<input type="number" name="vlan" id="userphone" class="form-control" value="<?php echo isset($_REQUEST['userphone'])?$_REQUEST['userphone']:''?>" placeholder="Enter Vlan">
+									<input type="number" name="vlan" id="vlan" class="form-control" value="<?php echo isset($_REQUEST['vlan'])?$_REQUEST['vlan']:''?>" placeholder="Enter Vlan">
 								</div>
 							</div>
 							<!-- <div class="col-sm-4">
@@ -139,18 +163,18 @@
 		<div >
 			<table class="table table-striped table-bordered">
 				<thead>
-					<tr class="bg-primary text-white">
+					<tr align="center" class="bg-primary text-white">
 						<th>S.no #</th>
 						<th>User Name</th>
 						<th>Telephone</th>
 						<th>Vlan</th>
-						<th>Modem Username</th>
+						<!-- <th>Modem Username</th>
 						<th>Modem Passsword</th>
 						<th>Ftth Username</th>
 						<th>Ftth Passsword</th>
 						<th>Wifi Name</th>
 						<th>Wifi Passsword</th>
-						<!-- <th class="text-center">Record Date</th> -->
+						<th class="text-center">Record Date</th> -->
 						<th class="text-center">Action</th>
 					</tr>
 				</thead>
@@ -161,22 +185,25 @@
 						foreach($userData as $val){
 							$s++;
 					?>
-					<tr>
+					<tr align="center">
 						<td><?php echo $s;?></td>
 						<td><?php echo $val['name'];?></td>
 						<td><?php echo $val['telephone'];?></td>
 						<td><?php echo $val['vlan'];?></td>
-						<td><?php echo $val['musername'];?></td>
+						<!-- <td><?php echo $val['musername'];?></td>
 						<td><?php echo $val['mpassword'];?></td>
 						<td><?php echo $val['ftthusername'];?></td>
 						<td><?php echo $val['ftthpassword'];?></td>
 						<td><?php echo $val['wifiname'];?></td>
 						<td><?php echo $val['wifipassword'];?></td>
-						<!-- <td><?php echo $val['date'];?></td> -->
+						<td><?php echo $val['date'];?></td> -->
 
 						<td align="center">
-							<a href="edit-users.php?editId=<?php echo $val['id'];?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | 
-							<a href="delete.php?delId=<?php echo $val['id'];?>" class="text-danger" onClick="return confirm('Are you sure to delete this user?');"><i class="fa fa-fw fa-trash"></i> Delete</a>
+						<a data-toggle="modal" data-id="<?php echo $val['id'];?>" data-target="#myModal" class="text-success"><i class="fa fa-book fa-fw"></i> View</a> | 
+
+						<a href="edit-users.php?editId=<?php echo $val['id'];?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | 
+						
+						<a href="delete.php?delId=<?php echo $val['id'];?>" class="text-danger" onClick="return confirm('Are you sure to delete this user?');"><i class="fa fa-fw fa-trash"></i> Delete</a>
 						</td>
 
 					</tr>
@@ -191,7 +218,103 @@
 		</div> <!--/.col-sm-12-->
 		
 	</div>
-	
+
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Extra Large Modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+					<form method="post">
+						<div class="form-group">
+							<div class="fieldBlock">
+
+								<label>User Name <span class="text-danger">*</span></label>
+
+								<input class="form-control"
+									value="<?php echo $row[0]['name']; ?>" disabled>
+
+							</div>
+
+							<div class="fieldBlock">
+
+								<label>TelePhone <span class="text-danger"></span></label>
+
+								<input class="tel form-control" 
+									value="<?php echo $row[0]['telephone']; ?>" disabled>
+
+							</div>
+
+							<div class="fieldBlock">
+
+								<label>Vlan <span class="text-danger"></span></label>
+
+								<input class="form-control"
+									value="<?php echo $row[0]['vlan']; ?>" disabled>
+
+							</div>
+						</div>
+
+						<div class="fieldBlock1">
+
+							<label>Modem User Name <span class="text-danger"></span></label>
+
+							<input 
+								value="<?php echo $row[0]['musername']; ?>" class="form-control" disabled>
+							
+
+						</div>
+
+						<div class="fieldBlock1">
+
+							<label>Modem Password <span class="text-danger"></span></label>
+
+							<input value="<?php echo $row[0]['mpassword']; ?>" class="form-control" disabled>
+
+						</div>
+						<div class="fieldBlock1">
+
+							<label>Ftth User Name <span class="text-danger"></span></label>
+
+							<input  value="<?php echo $row[0]['ftthusername']; ?>" class="form-control" disabled>
+
+						</div>
+						<div class="fieldBlock1">
+
+							<label>Ftth Password <span class="text-danger"></span></label>
+
+							<input  value="<?php echo $row[0]['ftthpassword']; ?>" class="form-control" disabled>
+
+						</div>
+						<div class="fieldBlock1">
+
+							<label>Wifi Name <span class="text-danger"></span></label>
+
+							<input  value="<?php echo $row[0]['wifiname']; ?>"class="form-control" disabled>
+
+						</div>
+						<div class="fieldBlock1">
+
+							<label>Wifi Password <span class="text-danger"></span></label>
+
+							<input  class="form-control" value="<?php echo $row[0]['wifipassword']; ?>" disabled>
+
+						</div>
+						
+					</form>
+
+					</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
@@ -206,7 +329,7 @@
     <script>
 		$(document).ready(function() {
 			jQuery(function($){
-				  var input = $('[type=tel]')
+				  var input = $('[type=text]')
 				  input.mobilePhoneNumber({allowPhoneWithoutPrefix: '+1'});
 				  input.bind('country.mobilePhoneNumber', function(e, country) {
 					$('.country').text(country || '')
@@ -245,6 +368,7 @@
 			//From, To date range End here	
 			
 		});
+		
 	</script>
 </body>
 </html>
