@@ -15,9 +15,15 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 		$userCount	=	$db->getQueryCount('users','id');
 		if($userCount[0]['total']<20){
 			$data	=	array(
-							'username'=>$username,
-							'useremail'=>$useremail,
-							'userphone'=>$userphone,
+				'name'=>$name,
+				'telephone'=>$telephone,
+				'vlan'=>$vlan,
+				'musername'=>$musername,
+				'mpassword'=>$mpassword,
+				'ftthusername'=>$ftthusername,
+				'ftthpassword'=>$ftthpassword,
+				'wifiname'=>$wifiname,
+				'wifipassowrd'=>$wifipassowrd,
 						);
 			$insert	=	$db->insert('users',$data);
 			if($insert){
