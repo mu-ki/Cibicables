@@ -42,7 +42,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 					'ftthusername'=>$ftthusername,
 					'ftthpassword'=>$ftthpassword,
 					'wifiname'=>$wifiname,
-					'wifipassword'=>$wifipassowrd,
+					'wifipassword'=>$wifipassword,
 					);
 	$update	=	$db->update('users',$data,array('id'=>$editId));
 	if($update){
@@ -189,7 +189,6 @@ if(isset($_REQUEST['msg']) and $_REQUEST['msg']=="un"){
 	echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Please delete a user and then try again <strong>We set limit for security reasons!</strong></div>';
 
 }
-
 ?>
 		<div class="card">
 			<div class="card-header"><i class="fa fa-fw fa-plus-circle"></i> <strong>Edit User</strong> <a
