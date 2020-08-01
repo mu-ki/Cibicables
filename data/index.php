@@ -1,6 +1,7 @@
 <?php include_once('config.php');
 if(isset($_REQUEST['dataId']) and $_REQUEST['dataId']!=""){
 	$row	=	$db->getAllRecords('users','*',' AND id="'.$_REQUEST['dataId'].'"');
+	echo "Viewed";
 }else{
 	echo "Not viewed";
 }
@@ -201,7 +202,7 @@ if(isset($_REQUEST['dataId']) and $_REQUEST['dataId']!=""){
 						<td><?php echo $val['date'];?></td> -->
 
 						<td align="center">
-						<a data-toggle="modal" dataId="<?php echo $val['id'];?>" data-target="#myModal" class="text-success"><i class="fa fa-book fa-fw"></i> View</a> | 
+						<a href="view-user.php?dataId=<?php echo $val['id'];?>"data-toggle="modal" dataId="<?php echo $val['id'];?>" data-target="#myModal" class="text-success"><i class="fa fa-book fa-fw"></i> View</a> | 
 
 						<a href="edit-users.php?editId=<?php echo $val['id'];?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | 
 						
