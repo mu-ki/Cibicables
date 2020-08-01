@@ -1,9 +1,10 @@
 <?php include_once('config.php');
-if(isset($_REQUEST['dataId']) and $_REQUEST['dataId']!=""){
-	$row	=	$db->getAllRecords('users','*',' AND id="'.$_REQUEST['dataId'].'"');
-	echo "Viewed";
+// echo $_GET['dataId'];
+if(isset($_GET['dataId']) and $_GET['dataId']!=""){
+	$row	=	$db->getAllRecords('users','*',' AND id="'.$_GET['dataId'].'"');
+	// echo "Viewed";
 }else{
-	echo "Not viewed";
+	// echo "Not viewed";
 }
 ?>
 <!DOCTYPE html>
@@ -44,8 +45,13 @@ if(isset($_REQUEST['dataId']) and $_REQUEST['dataId']!=""){
 </head>
 
 <body>
+
 	
 <p>
+<div class="modal-header">
+                    <h5 class="modal-title">User Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
 					<form method="post">
 						<div class="form-group">
 							<div class="fieldBlock">
@@ -125,6 +131,9 @@ if(isset($_REQUEST['dataId']) and $_REQUEST['dataId']!=""){
 					</form>
 
 					</p>
+					<div class="modal-footer">
+                    <button onclick="location.href='index.php'" type="button" class="btn btn-primary" >Close</button>
+                </div>
 
 
 	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">

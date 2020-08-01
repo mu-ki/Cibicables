@@ -1,9 +1,9 @@
 <?php include_once('config.php');
 if(isset($_REQUEST['dataId']) and $_REQUEST['dataId']!=""){
 	$row	=	$db->getAllRecords('users','*',' AND id="'.$_REQUEST['dataId'].'"');
-	echo "Viewed";
+	// echo "Viewed";
 }else{
-	echo "Not viewed";
+	// echo "Not viewed";
 }
 ?>
 <!DOCTYPE html>
@@ -53,7 +53,7 @@ if(isset($_REQUEST['dataId']) and $_REQUEST['dataId']!=""){
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
 						<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-16" class="nav-item"><a title="FTTH Data" href="../" class="nav-link"><b>HOME</b></a></li>
-						<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-16" class="nav-item"><a title="FTTH Data" href="./index.php" class="nav-link"><b>FTTH DATA</b></a></li>
+						<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-16" class="nav-item"><a title="FTTH Data" 
 						<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-558" class="nav-item"><a title="Invoice" href="../invoice/index.php" class="nav-link"><b>INVOICE</b></a></li>
 						</ul>
 						<form method="get" action="https://Cibicables.com" class="form-inline my-2 my-lg-0">
@@ -202,7 +202,8 @@ if(isset($_REQUEST['dataId']) and $_REQUEST['dataId']!=""){
 						<td><?php echo $val['date'];?></td> -->
 
 						<td align="center">
-						<a href="view-user.php?dataId=<?php echo $val['id'];?>"data-toggle="modal" dataId="<?php echo $val['id'];?>" data-target="#myModal" class="text-success"><i class="fa fa-book fa-fw"></i> View</a> | 
+						<button onclick="ViewUser('<?= $val['name']; ?>','<?= $val['vlan']; ?>','<?= $val['musername']; ?>','<?= $val['mpassword']; ?>');" type="button" class="btn btn-warning btn-xs">View</a> |
+						<!-- <a href="view-user.php?dataId=<?php echo $val['id'];?>"data-toggle="modal" data-target="#myModal" class="text-success"><i class="fa fa-book fa-fw"></i> View</a> |  -->
 
 						<a href="edit-users.php?editId=<?php echo $val['id'];?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | 
 						
