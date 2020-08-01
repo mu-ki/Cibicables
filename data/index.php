@@ -1,10 +1,10 @@
 <?php include_once('config.php');
-
-if(isset($_REQUEST['editId1']) and $_REQUEST['editId1']!=""){
-	$row	=	$db->getAllRecords('users','*',' AND id="'.$_REQUEST['editId1'].'"');
+if(isset($_REQUEST['dataId']) and $_REQUEST['dataId']!=""){
+	$row	=	$db->getAllRecords('users','*',' AND id="'.$_REQUEST['dataId'].'"');
+}else{
+	echo "Not viewed";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -201,7 +201,7 @@ if(isset($_REQUEST['editId1']) and $_REQUEST['editId1']!=""){
 						<td><?php echo $val['date'];?></td> -->
 
 						<td align="center">
-						<a data-toggle="modal" viewId=<?php echo $val['id'];?> data-target="#myModal" class="text-success"><i class="fa fa-book fa-fw"></i> View</a> | 
+						<a data-toggle="modal" dataId="<?php echo $val['id'];?>" data-target="#myModal" class="text-success"><i class="fa fa-book fa-fw"></i> View</a> | 
 
 						<a href="edit-users.php?editId=<?php echo $val['id'];?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | 
 						
@@ -220,6 +220,7 @@ if(isset($_REQUEST['editId1']) and $_REQUEST['editId1']!=""){
 		</div> <!--/.col-sm-12-->
 		
 	</div>
+
 	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -236,7 +237,7 @@ if(isset($_REQUEST['editId1']) and $_REQUEST['editId1']!=""){
 								<label>User Name <span class="text-danger">*</span></label>
 
 								<input class="form-control"
-									value="<?php echo $val['name']; ?>" disabled>
+									value="<?php echo $row[0]['name']; ?>" disabled>
 
 							</div>
 
@@ -245,7 +246,7 @@ if(isset($_REQUEST['editId1']) and $_REQUEST['editId1']!=""){
 								<label>TelePhone <span class="text-danger"></span></label>
 
 								<input class="tel form-control" 
-									value="<?php echo $val['telephone']; ?>" disabled>
+									value="<?php echo $row[0]['telephone']; ?>" disabled>
 
 							</div>
 
@@ -254,7 +255,7 @@ if(isset($_REQUEST['editId1']) and $_REQUEST['editId1']!=""){
 								<label>Vlan <span class="text-danger"></span></label>
 
 								<input class="form-control"
-									value="<?php echo $val['vlan']; ?>" disabled>
+									value="<?php echo $row[0]['vlan']; ?>" disabled>
 
 							</div>
 						</div>
@@ -264,7 +265,7 @@ if(isset($_REQUEST['editId1']) and $_REQUEST['editId1']!=""){
 							<label>Modem User Name <span class="text-danger"></span></label>
 
 							<input 
-								value="<?php echo $val['musername']; ?>" class="form-control" disabled>
+								value="<?php echo $row[0]['musername']; ?>" class="form-control" disabled>
 							
 
 						</div>
@@ -273,35 +274,35 @@ if(isset($_REQUEST['editId1']) and $_REQUEST['editId1']!=""){
 
 							<label>Modem Password <span class="text-danger"></span></label>
 
-							<input value="<?php echo $val['mpassword']; ?>" class="form-control" disabled>
+							<input value="<?php echo $row[0]['mpassword']; ?>" class="form-control" disabled>
 
 						</div>
 						<div class="fieldBlock1">
 
 							<label>Ftth User Name <span class="text-danger"></span></label>
 
-							<input  value="<?php echo $val['ftthusername']; ?>" class="form-control" disabled>
+							<input  value="<?php echo $row[0]['ftthusername']; ?>" class="form-control" disabled>
 
 						</div>
 						<div class="fieldBlock1">
 
 							<label>Ftth Password <span class="text-danger"></span></label>
 
-							<input  value="<?php echo $val['ftthpassword']; ?>" class="form-control" disabled>
+							<input  value="<?php echo $row[0]['ftthpassword']; ?>" class="form-control" disabled>
 
 						</div>
 						<div class="fieldBlock1">
 
 							<label>Wifi Name <span class="text-danger"></span></label>
 
-							<input  value="<?php echo $val['wifiname']; ?>"class="form-control" disabled>
+							<input  value="<?php echo $row[0]['wifiname']; ?>"class="form-control" disabled>
 
 						</div>
 						<div class="fieldBlock1">
 
 							<label>Wifi Password <span class="text-danger"></span></label>
 
-							<input  class="form-control" value="<?php echo $val['wifipassword']; ?>" disabled>
+							<input  class="form-control" value="<?php echo $row[0]['wifipassword']; ?>" disabled>
 
 						</div>
 						
@@ -322,11 +323,12 @@ if(isset($_REQUEST['editId1']) and $_REQUEST['editId1']!=""){
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/jquery.caret/0.1/jquery.caret.js"></script>
+	<script src="https://www.solodev.com/_/assets/phone/jquery.mobilePhoneNumber.js"></script>
 	<script
   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
   crossorigin="anonymous"></script>
-    <!-- <script>
+    <script>
 		$(document).ready(function() {
 			jQuery(function($){
 				  var input = $('[type=text]')
@@ -369,6 +371,6 @@ if(isset($_REQUEST['editId1']) and $_REQUEST['editId1']!=""){
 			
 		});
 		
-	</script> -->
+	</script>
 </body>
 </html>
