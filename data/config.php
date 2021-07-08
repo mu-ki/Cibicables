@@ -1,16 +1,11 @@
 <?php
-include_once('include/Database.php');
-define('SS_DB_NAME', 'ftthdata');
-define('SS_DB_USER', 'root');
-define('SS_DB_PASSWORD', '');
-define('SS_DB_HOST', 'localhost');
-
-$dsn	= 	"mysql:dbname=".SS_DB_NAME.";host=".SS_DB_HOST."";
-$pdo	=	"";
-try {
-	$pdo = new PDO($dsn, SS_DB_USER, SS_DB_PASSWORD);
-}catch (PDOException $e) {
-	echo "Connection failed: " . $e->getMessage();
-}
-$db 	=	new Database($pdo);
+    $hName='ec2-18-214-208-89.compute-1.amazonaws.com'; // host name
+    $uName='qfcqyzowrnmgfo';   // database user name
+    $password='59d91ac2c79c3a78382d76266e3bdd4deb041b02eeec3fa073dbbc3584877375';   // database password
+    $dbName = "dfmb2kgh0khiu0"; // database name
+    $dbCon = $link = mysqli_connect($hName,$uName,$password,"$dbName");
+    
+      if(!$dbCon){
+          die('Could not Connect MySql Server:' .mysqli_connect_error());
+      }
 ?>

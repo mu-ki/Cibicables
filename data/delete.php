@@ -1,8 +1,17 @@
-<?php 
-include_once('config.php');
-if(isset($_REQUEST['delId']) and $_REQUEST['delId']!=""){
-	$db->delete('users',array('id'=>$_REQUEST['delId']));
-	header('location: index.php?msg=rds');
-	exit;
-}
+<?php
+
+
+include 'Config.php';
+
+$query = "DELETE FROM customers WHERE custId='" . $_GET["custId"] . "'"; // Delete data from the table customers using id
+
+ if (mysqli_query($dbCon, $query)) {
+    $msg = 3;
+ } else {
+    $msg = 4;
+ }
+
+header ("Location: customers.php?msg=".$msg."");
+
+
 ?>
